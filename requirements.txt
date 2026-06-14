@@ -1,8 +1,9 @@
 langchain
 langchain-community
-langchain-openai
 langchain-qdrant
 qdrant-client
-pypdf
+langchain-huggingface
+sentence-transformers
+langchain-ollama
+pymupdf
 python-dotenv
-tiktoken
