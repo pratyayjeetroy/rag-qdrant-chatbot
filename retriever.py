@@ -31,7 +31,8 @@ def ask_question(query):
 
     llm = ChatOllama(
         model="mistral",
-        temperature=0
+        temperature=0,
+        num_ctx=512
     )
 
     prompt = f"""

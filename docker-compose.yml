@@ -9,5 +9,10 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
 
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
 volumes:
   qdrant_data:
