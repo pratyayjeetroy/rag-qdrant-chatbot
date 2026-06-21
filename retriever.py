@@ -1,10 +1,13 @@
 from vector_store import load_vector_store
 from langchain_ollama import ChatOllama
 
-
+llm = ChatOllama(
+        model="mistral",
+        temperature=0,
+        num_ctx=256
+    )
+db = load_vector_store()
 def ask_question(query):
-    db = load_vector_store()
-
     retriever = db.as_retriever(search_kwargs={"k": 3})
     docs = retriever.invoke(query)
 
@@ -29,11 +32,7 @@ def ask_question(query):
             "pages": []
         }
 
-    llm = ChatOllama(
-        model="mistral",
-        temperature=0,
-        num_ctx=512
-    )
+    
 
     prompt = f"""
 You are a strict document QA system.

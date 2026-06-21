@@ -12,7 +12,7 @@ queue = Queue("rag_queue", connection=redis_conn)
 
 @app.post("/ask")
 def ask(query: str):
-    job = queue.enqueue(process_query, query)
+    job = queue.enqueue(process_query, query, job_timeout=600)
 
     return {
         "job_id": job.id,
